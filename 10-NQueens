@@ -1,0 +1,74 @@
+#include <stdio.h> 
+#include <stdbool.h> 
+ 
+#define MAX 10 
+ 
+Int board[MAX][MAX]; 
+Int N; 
+ 
+
+Void printSolution() { 
+    Static int count = 1; 
+    Printf(“\nSolution %d:\n”, count++); 
+    For (int I = 0; I < N; i++) { 
+        For (int j = 0; j < N; j++) { 
+            If (board[i][j]) 
+                Printf(“ Q “); 
+            Else 
+                Printf(“ . “); 
+        } 
+        Printf(“\n”); 
+    } 
+} 
+ 
+
+Bool isSafe(int row, int col) { 
+    Int I, j; 
+ 
+
+    For (I = 0; I < col; i++) 
+        If (board[row][i]) return false; 
+ 
+    
+    For (I = row, j = col; I >= 0 && j >= 0; i--, j--) 
+        If (board[i][j]) return false; 
+ 
+    
+    For (I = row, j = col; j >= 0 && I < N; i++, j--) 
+        If (board[i][j]) return false; 
+ 
+    Return true; 
+} 
+ 
+Bool solveNQUtil(int col) { 
+   
+    If (col >= N) { 
+        printSolution(); 
+        return true; 
+    } 
+ 
+    Bool res = false; 
+    For (int I = 0; I < N; i++) { 
+        If (isSafe(I, col)) { 
+    
+            Board[i][col] = 1; 
+ 
+      
+            Res = solveNQUtil(col + 1) || res; 
+ 
+        
+            Board[i][col] = 0; 
+        } 
+    } 
+    Return res; 
+} 
+ 
+Int main() { 
+    Printf(“Enter the number of queens: “); 
+    Scanf(“%d”, &N); 
+ 
+    If (!solveNQUtil(0)) { 
+        Printf(“Solution does not exist”); 
+    } 
+    Return 0; 
+} 
