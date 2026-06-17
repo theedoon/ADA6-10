@@ -4,7 +4,7 @@
 
 #define V 5
 
-// Function to find the vertex with minimum key value
+
 int minKey(int key[], bool mstSet[]) {
     int min = INT_MAX;
     int min_index = -1;
@@ -19,7 +19,7 @@ int minKey(int key[], bool mstSet[]) {
     return min_index;
 }
 
-// Function to print the constructed MST
+
 void printMST(int parent[], int graph[V][V]) {
     printf("Edge \tWeight\n");
     for (int i = 1; i < V; i++) {
@@ -27,19 +27,19 @@ void printMST(int parent[], int graph[V][V]) {
     }
 }
 
-// Function to construct MST using Prim's Algorithm
+
 void primMST(int graph[V][V]) {
     int parent[V];
     int key[V];
     bool mstSet[V];
 
-    // Initialize all keys as infinite
+ 
     for (int i = 0; i < V; i++) {
         key[i] = INT_MAX;
         mstSet[i] = false;
     }
 
-    // Start from first vertex
+
     key[0] = 0;
     parent[0] = -1;
 
