@@ -59,3 +59,12 @@ solve_knapsack(0, 0, 0);
 printf("Maximum Profit: %d\n", max_profit); 
 return 0; 
 }
+
+
+
+OUTPUT:
+Enter number of items and capacity: 2 4
+Enter weights and values:
+2 20
+3 30
+Maximum Profit: 30
