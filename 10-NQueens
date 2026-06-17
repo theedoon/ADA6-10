@@ -6,7 +6,7 @@
 int board[MAX][MAX];
 int N;
 
-// Function to print solution
+
 void printSolution() {
     static int count = 1;
     printf("\nSolution %d:\n", count++);
@@ -22,21 +22,21 @@ void printSolution() {
     }
 }
 
-// Function to check if it's safe to place queen
+
 bool isSafe(int row, int col) {
     int i, j;
 
-    // Check left side of row
+  
     for (i = 0; i < col; i++)
         if (board[row][i])
             return false;
 
-    // Check upper diagonal
+  
     for (i = row, j = col; i >= 0 && j >= 0; i--, j--)
         if (board[i][j])
             return false;
 
-    // Check lower diagonal
+    
     for (i = row, j = col; j >= 0 && i < N; i++, j--)
         if (board[i][j])
             return false;
@@ -44,7 +44,7 @@ bool isSafe(int row, int col) {
     return true;
 }
 
-// Recursive function to solve N-Queens
+
 bool solveNQUtil(int col) {
     if (col >= N) {
         printSolution();
@@ -59,7 +59,7 @@ bool solveNQUtil(int col) {
 
             res = solveNQUtil(col + 1) || res;
 
-            // Backtrack
+         
             board[i][col] = 0;
         }
     }
@@ -71,7 +71,7 @@ int main() {
     printf("Enter the number of queens: ");
     scanf("%d", &N);
 
-    // Initialize board with 0
+ 
     for (int i = 0; i < N; i++)
         for (int j = 0; j < N; j++)
             board[i][j] = 0;
